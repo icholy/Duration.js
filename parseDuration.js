@@ -17,7 +17,6 @@ var parseDuration = function (duration) {
         sign  = duration[0] === '-' ? -1 : 1,
         unit, value, match;
 
-
     while (match = regex.exec(duration)) {
 
         unit  = match[2];
