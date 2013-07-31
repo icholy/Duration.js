@@ -6,6 +6,10 @@
   "scripts": {
     "test": "mocha"
   },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "~1.7.2"
+  },
   "repository": "",
   "author": "Ilia Choly",
   "license": "BSD"
