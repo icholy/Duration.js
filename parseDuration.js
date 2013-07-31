@@ -7,14 +7,15 @@ var nanosecond  = 1,
 
 var parseDuration = function (duration) {
 
-    var regex = /([\+\-\d\.]+)([a-z]+)/g,
+    var regex = /([\-\+\d\.]+)([a-zµμ]+)/g,
         total = 0,
+        sign  = duration[0] === '-' ? -1 : 1,
         unit, value, match;
 
     while (match = regex.exec(duration)) {
 
         unit  = match[2];
-        value = parseFloat(match[1]);
+        value = Math.abs(parseFloat(match[1]));
 
         switch (unit) {
 
@@ -22,6 +23,7 @@ var parseDuration = function (duration) {
         case ""   : total += value * nanosecond;  break;
         case "us" : total += value * microsecond; break;
         case "µs" : total += value * microsecond; break;
+        case "μs" : total += value * microsecond; break;
         case "ms" : total += value * millisecond; break;
         case "s"  : total += value * second;      break;
         case "m"  : total += value * minute;      break;
@@ -32,7 +34,7 @@ var parseDuration = function (duration) {
         }
     }
 
-    return total;
+    return total * sign;
 };
 
 if (typeof module !== "undefined") {
