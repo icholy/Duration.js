@@ -1,5 +1,5 @@
 
-var parseDuration = require("./parseDuration.js"),
+var ParseDuration = require("./ParseDuration.js"),
 	expect        = require("chai").expect;
 
 var nanosecond  = 1,
@@ -74,15 +74,15 @@ var parseDurationTests = [
 	return true;
 });
 
-describe('parseDuration', function () {
+describe('ParseDuration', function () {
 	parseDurationTests.forEach(function (test) {
 		if (test.passed) {
 			it('should parse ' + test.input, function () {
-				expect(parseDuration(test.input)).to.equal(test.output);
+				expect(ParseDuration(test.input)).to.equal(test.output);
 			});
 		} else {
 			it('should not parse ' + test.input, function () {
-				expect(parseDuration.bind(null, test.input)).to.throw(Error);
+				expect(ParseDuration.bind(null, test.input)).to.throw(Error);
 			});
 		}
 	});

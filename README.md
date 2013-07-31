@@ -1,4 +1,4 @@
-# parseDuration
+# ParseDuration
 
 This is a port of Go's [Time/ParseDuration](http://golang.org/pkg/time/#ParseDuration) function.
 
