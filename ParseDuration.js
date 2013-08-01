@@ -5,6 +5,17 @@ var nanosecond  = 1,
     minute      = 60   * second,
     hour        = 60   * minute;
 
+var unitMap = {
+    "ns" : nanosecond,  
+    "us" : microsecond, 
+    "µs" : microsecond, 
+    "μs" : microsecond, 
+    "ms" : millisecond, 
+    "s"  : second,      
+    "m"  : minute,      
+    "h"  : hour     
+};
+
 var ParseDuration = function (duration) {
 
     if (duration === "0" || duration === "+0" || duration === "-0") {
@@ -27,20 +38,11 @@ var ParseDuration = function (duration) {
           throw new Error("invalid duration");
         }
 
-        switch (unit) {
-
-        case "ns" : total += value * nanosecond;  break;
-        case "us" : total += value * microsecond; break;
-        case "µs" : total += value * microsecond; break;
-        case "μs" : total += value * microsecond; break;
-        case "ms" : total += value * millisecond; break;
-        case "s"  : total += value * second;      break;
-        case "m"  : total += value * minute;      break;
-        case "h"  : total += value * hour;        break;
-
-        default: throw new Error("invalid unit " + unit);
-
+        if (typeof unitMap[unit] === "undefined") {
+            throw new Error("invalid unit " + unit);
         }
+
+        total += value * unitMap[unit];
     }
 
     if (count === 0) {
