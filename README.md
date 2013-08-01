@@ -11,7 +11,6 @@ var parseDuration = require("./parseDuration.js");
 var d = parseDuration("4h3m2s");
 
 console.log(
-	"nanosecond",   d.nanoseconds(),  "\n",
     "nanoseconds",  d.nanoseconds(),  "\n",
     "microseconds", d.microseconds(), "\n",
     "milliseconds", d.milliseconds(), "\n",
