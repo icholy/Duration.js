@@ -39,7 +39,7 @@ var ParseDuration = function (duration) {
         }
 
         if (typeof unitMap[unit] === "undefined") {
-            throw new Error("invalid unit " + unit);
+          throw new Error("invalid unit " + unit);
         }
 
         total += value * unitMap[unit];
