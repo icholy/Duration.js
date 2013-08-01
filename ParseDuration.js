@@ -6,14 +6,14 @@ var nanosecond  = 1,
     hour        = 60   * minute;
 
 var unitMap = {
-    "ns" : nanosecond,  
-    "us" : microsecond, 
-    "µs" : microsecond, 
-    "μs" : microsecond, 
-    "ms" : millisecond, 
-    "s"  : second,      
-    "m"  : minute,      
-    "h"  : hour     
+    "ns" : nanosecond,
+    "us" : microsecond,
+    "µs" : microsecond,
+    "μs" : microsecond,
+    "ms" : millisecond,
+    "s"  : second,
+    "m"  : minute,
+    "h"  : hour
 };
 
 var ParseDuration = function (duration) {
