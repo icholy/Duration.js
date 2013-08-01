@@ -1,6 +1,6 @@
 
 var ParseDuration = require("./ParseDuration.js"),
-	expect        = require("chai").expect;
+    expect        = require("chai").expect;
 
 var nanosecond  = 1,
     microsecond = 1000 * nanosecond,
@@ -78,7 +78,7 @@ describe('ParseDuration', function () {
 	parseDurationTests.forEach(function (test) {
 		if (test.passed) {
 			it('should parse ' + test.input, function () {
-				expect(ParseDuration(test.input)).to.equal(test.output);
+				expect(ParseDuration(test.input).nanoseconds()).to.equal(test.output);
 			});
 		} else {
 			it('should not parse ' + test.input, function () {

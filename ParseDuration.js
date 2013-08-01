@@ -19,10 +19,38 @@ var ParseDuration = (function () {
         "h"  : hour
     };
 
+    var Duration = function (nanoseconds) {
+        this._nanoseconds = nanoseconds;
+    };
+
+    Duration.prototype.nanoseconds = function () {
+        return this._nanoseconds;
+    };
+
+    Duration.prototype.microseconds = function () {
+        return Math.floor(this._nanoseconds / microsecond);
+    };
+
+    Duration.prototype.milliseconds = function () {
+        return Math.floor(this._nanoseconds / millisecond);
+    };
+
+    Duration.prototype.seconds = function () {
+        return Math.floor(this._nanoseconds / second);
+    };
+
+    Duration.prototype.minutes = function () {
+        return Math.floor(this._nanoseconds / minute);
+    };
+
+    Duration.prototype.hours = function () {
+        return Math.floor(this._nanoseconds / hour);
+    };
+
     return function (duration) {
 
         if (duration === "0" || duration === "+0" || duration === "-0") {
-          return 0;
+          return new Duration(0);
         }
 
         var regex = /([\-\+\d\.]+)([a-zµμ]+)/g,
@@ -52,7 +80,7 @@ var ParseDuration = (function () {
           throw new Error("invalid duration");
         }
 
-        return total * sign;
+        return new Duration(total * sign);
     };
 
 }).call(this);
