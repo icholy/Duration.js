@@ -68,10 +68,8 @@ var parseDurationTests = [
 	return {
 		input  : test[0],
 		passed : test[1],
-		output : test[2],
+		output : test[2]
 	};
-}).filter(function (test) {
-	return true;
 });
 
 describe('ParseDuration', function () {
