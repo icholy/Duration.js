@@ -6,9 +6,9 @@ It passes the same [test cases](http://golang.org/src/pkg/time/time_test.go#L119
 
 ``` js
 
-var parseDuration = require("./parseDuration.js");
+var ParseDuration = require("./ParseDuration.js");
 
-var d = parseDuration("4h3m2s");
+var d = ParseDuration("4h3m2s");
 
 console.log(
     "nanoseconds",  d.nanoseconds(),  "\n",
