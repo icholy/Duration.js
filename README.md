@@ -1,4 +1,4 @@
-# ParseDuration
+# ParseDuration ![](https://travis-ci.org/icholy/ParseDuration.png)
 
 This is a port of Go's [Time/ParseDuration](http://golang.org/pkg/time/#ParseDuration) function.
 
