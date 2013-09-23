@@ -1,4 +1,4 @@
-# ParseDuration ![](https://travis-ci.org/icholy/ParseDuration.png)
+# ParseDuration [![Build Status](https://travis-ci.org/icholy/ParseDuration.png?branch=master)](https://travis-ci.org/icholy/ParseDuration) 
 
 This is a port of Go's [Time/ParseDuration](http://golang.org/pkg/time/#ParseDuration) function.
 
