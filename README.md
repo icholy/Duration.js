@@ -1,5 +1,4 @@
-# Duration [![Build Status](https://travis-ci.org/icholy/ParseDuration.png?branch=master)](https://travis-ci.org/icholy/ParseDuration) 
-
+# Duration [![Build Status](https://travis-ci.org/icholy/Duration.js.png?branch=master)](https://travis-ci.org/icholy/Duration.js)
 This is a port of Go's [Time/ParseDuration](http://golang.org/pkg/time/#ParseDuration) functionality.
 
 It passes the same [test cases](http://golang.org/src/pkg/time/time_test.go#L1194)
