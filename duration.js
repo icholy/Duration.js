@@ -1,5 +1,5 @@
 
-var ParseDuration = (function () {
+var Duration = (function () {
 
     var nanosecond  = 1,
         microsecond = 1000 * nanosecond,
@@ -22,6 +22,13 @@ var ParseDuration = (function () {
     var Duration = function (nanoseconds) {
         this._nanoseconds = nanoseconds;
     };
+
+    Duration.nanosecond  = nanosecond;
+    Duration.microsecond = microsecond;
+    Duration.millisecond = millisecond;
+    Duration.second      = second;
+    Duration.minute      = minute;
+    Duration.hour        = hour;
 
     Duration.prototype.nanoseconds = function () {
         return this._nanoseconds;
@@ -100,7 +107,11 @@ var ParseDuration = (function () {
       return sign + str;
     };
 
-    return function (duration) {
+    Duration.prototype.valueOf = function () {
+      return this._nanoseconds;
+    };
+
+    Duration.parse = function (duration) {
 
         if (duration === "0" || duration === "+0" || duration === "-0") {
           return new Duration(0);
@@ -136,8 +147,10 @@ var ParseDuration = (function () {
         return new Duration(total * sign);
     };
 
+    return Duration;
+
 }).call(this);
 
 if (typeof module !== "undefined") {
-   module.exports = ParseDuration;
+   module.exports = Duration;
 }

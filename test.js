@@ -1,6 +1,6 @@
 
-var ParseDuration = require("./ParseDuration.js"),
-    expect        = require("chai").expect;
+var Duration = require("./duration.js"),
+    expect   = require("chai").expect;
 
 var nanosecond  = 1,
     microsecond = 1000 * nanosecond,
@@ -72,21 +72,21 @@ var parseDurationTests = [
 	};
 });
 
-describe('ParseDuration', function () {
+describe('Duration', function () {
 	parseDurationTests.forEach(function (test) {
 		if (test.passed) {
 			it('should parse ' + test.input, function () {
-				expect(ParseDuration(test.input).nanoseconds()).to.equal(test.output);
+				expect(Duration.parse(test.input).nanoseconds()).to.equal(test.output);
 			});
       it('should produce the correct string value ' + test.input, function () {
-        var d      = ParseDuration(test.input),
+        var d      = Duration.parse(test.input),
             before = d.nanoseconds(),
-            after  = ParseDuration(d.toString()).nanoseconds();
+            after  = Duration.parse(d.toString()).nanoseconds();
         expect(before).to.equal(after);
       });
 		} else {
 			it('should not parse ' + test.input, function () {
-				expect(ParseDuration.bind(null, test.input)).to.throw(Error);
+				expect(Duration.parse.bind(null, test.input)).to.throw(Error);
 			});
 		}
 	});
