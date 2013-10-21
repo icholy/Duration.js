@@ -47,6 +47,59 @@ var ParseDuration = (function () {
         return Math.floor(this._nanoseconds / hour);
     };
 
+    Duration.prototype.toString = function () {
+      var str         = "",
+          nanoseconds = Math.abs(this._nanoseconds),
+          sign        = this._nanoseconds < 0 ? "-" : "";
+
+      // no units for 0 duration
+      if (nanoseconds === 0) {
+        return "0";
+      }
+
+      // hours
+      var hours = Math.floor(nanoseconds / hour)
+      nanoseconds -= hour * hours;
+      if (hours !== 0) {
+        str += hours.toString() + "h";
+      }
+
+      // minutes
+      var minutes = Math.floor(nanoseconds / minute)
+      nanoseconds -= minute * minutes;
+      if (minutes !== 0) {
+        str += minutes.toString() + "m";
+      }
+
+      // seconds
+      var seconds = Math.floor(nanoseconds / second);
+      nanoseconds -= second * seconds;
+      if (seconds !== 0) {
+        str += seconds.toString() + "s";
+      }
+
+      // milliseconds
+      var milliseconds = Math.floor(nanoseconds / millisecond);
+      nanoseconds -= millisecond * milliseconds;
+      if (milliseconds !== 0) {
+        str += milliseconds.toString() + "ms";
+      }
+
+      // microseconds
+      var microseconds = Math.floor(nanoseconds / microsecond);
+      nanoseconds -= microsecond * microseconds;
+      if (microseconds !== 0) {
+        str += microseconds.toString() + "µs";
+      }
+      
+      // nanoseconds
+      if (nanoseconds !== 0) {
+        str += nanoseconds.toString() + "ns";
+      }
+
+      return sign + str;
+    };
+
     return function (duration) {
 
         if (duration === "0" || duration === "+0" || duration === "-0") {

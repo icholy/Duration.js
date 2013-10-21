@@ -78,6 +78,12 @@ describe('ParseDuration', function () {
 			it('should parse ' + test.input, function () {
 				expect(ParseDuration(test.input).nanoseconds()).to.equal(test.output);
 			});
+      it('should produce the correct string value ' + test.input, function () {
+        var d      = ParseDuration(test.input),
+            before = d.nanoseconds(),
+            after  = ParseDuration(d.toString()).nanoseconds();
+        expect(before).to.equal(after);
+      });
 		} else {
 			it('should not parse ' + test.input, function () {
 				expect(ParseDuration.bind(null, test.input)).to.throw(Error);
