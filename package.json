@@ -2,6 +2,10 @@
   "name": "parseDuration",
   "version": "2.0.0",
   "description": "parses golang style duration strings",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/icholy/Duration.js.git"
+  },
   "main": "duration.js",
   "scripts": {
     "test": "mocha"
