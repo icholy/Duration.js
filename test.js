@@ -65,29 +65,29 @@ var parseDurationTests = [
   ["+.s", false, 0]
 
 ].map(function (test) {
-	return {
-		input  : test[0],
-		passed : test[1],
-		output : test[2]
-	};
+  return {
+    input  : test[0],
+    passed : test[1],
+    output : test[2]
+  };
 });
 
 describe('Duration', function () {
-	parseDurationTests.forEach(function (test) {
-		if (test.passed) {
-			it('should parse ' + test.input, function () {
-				expect(Duration.parse(test.input).nanoseconds()).to.equal(test.output);
-			});
+  parseDurationTests.forEach(function (test) {
+    if (test.passed) {
+      it('should parse ' + test.input, function () {
+        expect(Duration.parse(test.input).nanoseconds()).to.equal(test.output);
+      });
       it('should produce the correct string value ' + test.input, function () {
         var d      = Duration.parse(test.input),
             before = d.nanoseconds(),
             after  = Duration.parse(d.toString()).nanoseconds();
         expect(before).to.equal(after);
       });
-		} else {
-			it('should not parse ' + test.input, function () {
-				expect(Duration.parse.bind(null, test.input)).to.throw(Error);
-			});
-		}
-	});
+    } else {
+      it('should not parse ' + test.input, function () {
+        expect(Duration.parse.bind(null, test.input)).to.throw(Error);
+      });
+    }
+  });
 });
