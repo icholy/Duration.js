@@ -28,9 +28,6 @@ console.log(
   "str:",  Duration.hour.toString(),
   "nano:", Duration.hour.valueOf()
 ); // => "str: 1h nano: 3600000000000"
-
-var d = new Duration(Duration.hour*10 + Duration.minute*10);
-console.log(d.toString()); // => "10h10m"
 ```
 
 ### Can use basic operators
