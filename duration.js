@@ -23,12 +23,12 @@ var Duration = (function () {
         this._nanoseconds = nanoseconds;
     };
 
-    Duration.nanosecond  = nanosecond;
-    Duration.microsecond = microsecond;
-    Duration.millisecond = millisecond;
-    Duration.second      = second;
-    Duration.minute      = minute;
-    Duration.hour        = hour;
+    Duration.nanosecond  = new Duration(nanosecond);
+    Duration.microsecond = new Duration(microsecond);
+    Duration.millisecond = new Duration(millisecond);
+    Duration.second      = new Duration(second);
+    Duration.minute      = new Duration(minute);
+    Duration.hour        = new Duration(hour);
 
     Duration.prototype.nanoseconds = function () {
         return this._nanoseconds;
