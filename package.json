@@ -1,8 +1,8 @@
 {
   "name": "parseDuration",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "description": "parses golang style duration strings",
-  "main": "index.js",
+  "main": "duration.js",
   "scripts": {
     "test": "mocha"
   },
@@ -12,5 +12,5 @@
   },
   "repository": "",
   "author": "Ilia Choly",
-  "license": "BSD"
+  "license": "MIT"
 }
