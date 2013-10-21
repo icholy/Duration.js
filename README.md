@@ -13,12 +13,12 @@ var Duration = require("./duration.js");
 var d = Duration.parse("4h3m2s");
 
 console.log(
-    "nanoseconds",  d.nanoseconds(),  "\n",
-    "microseconds", d.microseconds(), "\n",
-    "milliseconds", d.milliseconds(), "\n",
-    "seconds",      d.seconds(),      "\n",
-    "minutes",      d.minutes(),      "\n",
-    "hours",        d.hours(),        "\n"
+    "nanoseconds",  d.nanoseconds(),  "\n", // => 14582000000000
+    "microseconds", d.microseconds(), "\n", // => 14582000000
+    "milliseconds", d.milliseconds(), "\n", // => 14582000
+    "seconds",      d.seconds(),      "\n", // => 14582
+    "minutes",      d.minutes(),      "\n", // => 243
+    "hours",        d.hours(),        "\n"  // => 4
 );
 ```
 
