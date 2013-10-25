@@ -65,36 +65,36 @@ var Duration = (function () {
 
       // hours
       var hours = Math.floor(nanoseconds / hour);
-      nanoseconds -= hour * hours;
       if (hours !== 0) {
+        nanoseconds -= hour * hours;
         str += hours.toString() + "h";
       }
 
       // minutes
       var minutes = Math.floor(nanoseconds / minute);
-      nanoseconds -= minute * minutes;
       if (minutes !== 0) {
+        nanoseconds -= minute * minutes;
         str += minutes.toString() + "m";
       }
 
       // seconds
       var seconds = Math.floor(nanoseconds / second);
-      nanoseconds -= second * seconds;
       if (seconds !== 0) {
+        nanoseconds -= second * seconds;
         str += seconds.toString() + "s";
       }
 
       // milliseconds
       var milliseconds = Math.floor(nanoseconds / millisecond);
-      nanoseconds -= millisecond * milliseconds;
       if (milliseconds !== 0) {
+        nanoseconds -= millisecond * milliseconds;
         str += milliseconds.toString() + "ms";
       }
 
       // microseconds
       var microseconds = Math.floor(nanoseconds / microsecond);
-      nanoseconds -= microsecond * microseconds;
       if (microseconds !== 0) {
+        nanoseconds -= microsecond * microseconds;
         str += microseconds.toString() + "µs";
       }
       
