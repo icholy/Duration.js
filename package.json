@@ -14,7 +14,8 @@
     "chai": "~1.7.2",
     "mocha": "~1.13.0"
   },
-  "repository": "",
   "author": "Ilia Choly",
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": [],
+  "bugs": "https://github.com/icholy/Duration.js/issues"
 }
