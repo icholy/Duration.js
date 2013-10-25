@@ -1,4 +1,3 @@
-
 var Duration = (function () {
 
     var nanosecond  = 1,
@@ -65,14 +64,14 @@ var Duration = (function () {
       }
 
       // hours
-      var hours = Math.floor(nanoseconds / hour)
+      var hours = Math.floor(nanoseconds / hour);
       nanoseconds -= hour * hours;
       if (hours !== 0) {
         str += hours.toString() + "h";
       }
 
       // minutes
-      var minutes = Math.floor(nanoseconds / minute)
+      var minutes = Math.floor(nanoseconds / minute);
       nanoseconds -= minute * minutes;
       if (minutes !== 0) {
         str += minutes.toString() + "m";
