@@ -1,4 +1,4 @@
-# Duration [![Build Status](https://travis-ci.org/icholy/Duration.js.png?branch=days_and_weeks)](https://travis-ci.org/icholy/Duration.js)
+# Duration [![Build Status](https://travis-ci.org/icholy/Duration.js.png?branch=millisecond_unit)](https://travis-ci.org/icholy/Duration.js)
 
 This is a simple library for dealing with durations. 
 It works well with javascript's Date objects.
