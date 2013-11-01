@@ -42,5 +42,18 @@ var d1 = Duration.parse("5m"),
 console.log(d2.toString()) // => "1h"
 ```
 
+### Working with Date
+``` js
+// Adding duration to date
+var d     = Duration.parse("5h"),
+    now   = new Date(),
+    later = new Date(now + d.milliseconds());
+console.log(later);
 
+// Duration between two dates
+var bday = Date.parse("March 3, 1991"),
+    now  = new Date(),
+    age  = new Duration((now - bday) * Duration.millisecond);
+console.log(age.toString());
+```
 
