@@ -1,5 +1,5 @@
 {
-  "name": "Duration.js",
+  "name": "duration-js",
   "version": "3.0.0",
   "description": "small simple library for dealing with durations",
   "repository": {
