@@ -5,7 +5,9 @@ var Duration = (function () {
         millisecond = 1000 * microsecond,
         second      = 1000 * millisecond,
         minute      = 60   * second,
-        hour        = 60   * minute;
+        hour        = 60   * minute,
+        day         = 24   * hour,
+        week        = 7    * day;
 
     var unitMap = {
         "ns" : nanosecond,
@@ -15,7 +17,9 @@ var Duration = (function () {
         "ms" : millisecond,
         "s"  : second,
         "m"  : minute,
-        "h"  : hour
+        "h"  : hour,
+        "d"  : day,
+        "w"  : week
     };
 
     var Duration = function (nanoseconds) {
@@ -28,6 +32,8 @@ var Duration = (function () {
     Duration.second      = new Duration(second);
     Duration.minute      = new Duration(minute);
     Duration.hour        = new Duration(hour);
+    Duration.day         = new Duration(day);
+    Duration.week        = new Duration(week);
 
     Duration.prototype.nanoseconds = function () {
         return this._nanoseconds;
@@ -53,6 +59,14 @@ var Duration = (function () {
         return Math.floor(this._nanoseconds / hour);
     };
 
+    Duration.prototype.days = function () {
+      return Math.floor(this._nanoseconds / day);
+    };
+
+    Duration.prototype.weeks = function () {
+      return Math.floor(this._nanoseconds / week);
+    };
+
     Duration.prototype.toString = function () {
       var str         = "",
           nanoseconds = Math.abs(this._nanoseconds),
@@ -61,6 +75,20 @@ var Duration = (function () {
       // no units for 0 duration
       if (nanoseconds === 0) {
         return "0";
+      }
+
+      // weeks
+      var weeks = Math.floor(nanoseconds / week);
+      if (weeks !== 0) {
+        nanoseconds -= week * weeks;
+        str += weeks.toString() + "w";
+      }
+
+      // days
+      var days = Math.floor(nanoseconds / day);
+      if (days !== 0) {
+        nanoseconds -= day * days;
+        str += days.toString() + "d";
       }
 
       // hours
