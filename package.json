@@ -1,7 +1,7 @@
 {
-  "name": "parseDuration",
-  "version": "2.0.0",
-  "description": "parses golang style duration strings",
+  "name": "Duration.js",
+  "version": "3.0.0",
+  "description": "small simple library for dealing with durations",
   "repository": {
     "type": "git",
     "url": "https://github.com/icholy/Duration.js.git"
