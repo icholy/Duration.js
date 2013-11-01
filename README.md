@@ -3,7 +3,7 @@ This is a port of Go's [Time/ParseDuration](http://golang.org/pkg/time/#ParseDur
 
 It passes the same [test cases](http://golang.org/src/pkg/time/time_test.go#L1194)
 
-**Note:** If you don't care about the compatibility with Go checkout out the [millisecon_unit](https://github.com/icholy/Duration.js/tree/millisecond_unit) branch. It makes working with `Date` objects much easier.
+**Note:** If you don't care about the compatibility with Go checkout out the [millisecond_unit](https://github.com/icholy/Duration.js/tree/millisecond_unit) branch. It makes working with `Date` objects much easier.
 
 ``` js
 var Duration = require("./duration.js");
