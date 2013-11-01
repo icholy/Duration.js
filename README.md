@@ -7,7 +7,7 @@ It works well with javascript's Date objects.
 var Duration = require("./duration.js");
 ```
 
-### Parse duration string
+### Parse
 ``` js
 var d = Duration.parse("6w5d4h3m2s");
 
@@ -21,7 +21,7 @@ console.log(
 );
 ```
 
-### Create duration string
+### Format
 ``` js
 console.log(
   "str:",  Duration.hour.toString(),
@@ -29,20 +29,22 @@ console.log(
 ); // => "str: 1h ms: 3600000"
 ```
 
-### Can use basic operators
+### Basic Operations
 ``` js
 // Addition
-var d1 = Duration.parse("2h"),
-    d2 = new Duration(d1 + Duration.hour);
-console.log(d2.toString()) // => "3h"
+var d1 = Duration.parse("6d"),
+    d2 = new Duration(d1 + Duration.day);
+console.log(d2.toString()) // => "1w"
 
 // Multiplication
 var d1 = Duration.parse("5m"),
     d2 = new Duration(d1 * 12);
 console.log(d2.toString()) // => "1h"
+
+// etc ...
 ```
 
-### Working with dates
+### Dates
 ``` js
 // Adding duration to date
 var d     = Duration.parse("5h"),
