@@ -61,3 +61,7 @@ var bday = Date.parse("March 3, 1991"),
 console.log(age.toString());
 ```
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/icholy/duration.js/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
