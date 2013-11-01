@@ -3,6 +3,8 @@
 This is a simple library for dealing with durations. 
 It works well with javascript's Date objects.
 
+**Note:** If you don't care about the compatability with Go checkout out the [millisecon_unit](https://github.com/icholy/Duration.js/tree/millisecond_unit) branch. It makes working with `Date` objects much easier.
+
 ``` js
 var Duration = require("./duration.js");
 ```
