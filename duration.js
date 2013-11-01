@@ -1,8 +1,6 @@
 var Duration = (function () {
 
-    var nanosecond  = 1,
-        microsecond = 1000 * nanosecond,
-        millisecond = 1000 * microsecond,
+    var millisecond = 1,
         second      = 1000 * millisecond,
         minute      = 60   * second,
         hour        = 60   * minute,
@@ -10,10 +8,6 @@ var Duration = (function () {
         week        = 7    * day;
 
     var unitMap = {
-        "ns" : nanosecond,
-        "us" : microsecond,
-        "µs" : microsecond,
-        "μs" : microsecond,
         "ms" : millisecond,
         "s"  : second,
         "m"  : minute,
@@ -22,12 +16,10 @@ var Duration = (function () {
         "w"  : week
     };
 
-    var Duration = function (nanoseconds) {
-        this._nanoseconds = nanoseconds;
+    var Duration = function (milliseconds) {
+        this._milliseconds = milliseconds;
     };
 
-    Duration.nanosecond  = new Duration(nanosecond);
-    Duration.microsecond = new Duration(microsecond);
     Duration.millisecond = new Duration(millisecond);
     Duration.second      = new Duration(second);
     Duration.minute      = new Duration(minute);
@@ -35,107 +27,85 @@ var Duration = (function () {
     Duration.day         = new Duration(day);
     Duration.week        = new Duration(week);
 
-    Duration.prototype.nanoseconds = function () {
-        return this._nanoseconds;
-    };
-
-    Duration.prototype.microseconds = function () {
-        return Math.floor(this._nanoseconds / microsecond);
-    };
-
     Duration.prototype.milliseconds = function () {
-        return Math.floor(this._nanoseconds / millisecond);
+        return Math.floor(this._milliseconds / millisecond);
     };
 
     Duration.prototype.seconds = function () {
-        return Math.floor(this._nanoseconds / second);
+        return Math.floor(this._milliseconds / second);
     };
 
     Duration.prototype.minutes = function () {
-        return Math.floor(this._nanoseconds / minute);
+        return Math.floor(this._milliseconds / minute);
     };
 
     Duration.prototype.hours = function () {
-        return Math.floor(this._nanoseconds / hour);
+        return Math.floor(this._milliseconds / hour);
     };
 
     Duration.prototype.days = function () {
-      return Math.floor(this._nanoseconds / day);
+      return Math.floor(this._milliseconds / day);
     };
 
     Duration.prototype.weeks = function () {
-      return Math.floor(this._nanoseconds / week);
+      return Math.floor(this._milliseconds / week);
     };
 
     Duration.prototype.toString = function () {
-      var str         = "",
-          nanoseconds = Math.abs(this._nanoseconds),
-          sign        = this._nanoseconds < 0 ? "-" : "";
+      var str          = "",
+          milliseconds = Math.abs(this._milliseconds),
+          sign         = this._milliseconds < 0 ? "-" : "";
 
       // no units for 0 duration
-      if (nanoseconds === 0) {
+      if (milliseconds === 0) {
         return "0";
       }
 
       // weeks
-      var weeks = Math.floor(nanoseconds / week);
+      var weeks = Math.floor(milliseconds / week);
       if (weeks !== 0) {
-        nanoseconds -= week * weeks;
+        milliseconds -= week * weeks;
         str += weeks.toString() + "w";
       }
 
       // days
-      var days = Math.floor(nanoseconds / day);
+      var days = Math.floor(milliseconds / day);
       if (days !== 0) {
-        nanoseconds -= day * days;
+        milliseconds -= day * days;
         str += days.toString() + "d";
       }
 
       // hours
-      var hours = Math.floor(nanoseconds / hour);
+      var hours = Math.floor(milliseconds / hour);
       if (hours !== 0) {
-        nanoseconds -= hour * hours;
+        milliseconds -= hour * hours;
         str += hours.toString() + "h";
       }
 
       // minutes
-      var minutes = Math.floor(nanoseconds / minute);
+      var minutes = Math.floor(milliseconds / minute);
       if (minutes !== 0) {
-        nanoseconds -= minute * minutes;
+        milliseconds -= minute * minutes;
         str += minutes.toString() + "m";
       }
 
       // seconds
-      var seconds = Math.floor(nanoseconds / second);
+      var seconds = Math.floor(milliseconds / second);
       if (seconds !== 0) {
-        nanoseconds -= second * seconds;
+        milliseconds -= second * seconds;
         str += seconds.toString() + "s";
       }
 
       // milliseconds
-      var milliseconds = Math.floor(nanoseconds / millisecond);
       if (milliseconds !== 0) {
-        nanoseconds -= millisecond * milliseconds;
         str += milliseconds.toString() + "ms";
-      }
-
-      // microseconds
-      var microseconds = Math.floor(nanoseconds / microsecond);
-      if (microseconds !== 0) {
-        nanoseconds -= microsecond * microseconds;
-        str += microseconds.toString() + "µs";
-      }
-      
-      // nanoseconds
-      if (nanoseconds !== 0) {
-        str += nanoseconds.toString() + "ns";
       }
 
       return sign + str;
     };
 
     Duration.prototype.valueOf = function () {
-      return this._nanoseconds;
+      return this._milliseconds;
     };
 
     Duration.parse = function (duration) {
