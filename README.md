@@ -1,7 +1,7 @@
-# Duration [![Build Status](https://travis-ci.org/icholy/Duration.js.png?branch=master)](https://travis-ci.org/icholy/Duration.js)
-This is a port of Go's [Time/ParseDuration](http://golang.org/pkg/time/#ParseDuration) functionality.
+# Duration [![Build Status](https://travis-ci.org/icholy/Duration.js.png?branch=days_and_weeks)](https://travis-ci.org/icholy/Duration.js)
 
-It passes the same [test cases](http://golang.org/src/pkg/time/time_test.go#L1194)
+This is a simple library for dealing with durations. 
+It works well with javascript's Date objects.
 
 ``` js
 var Duration = require("./duration.js");
@@ -9,15 +9,15 @@ var Duration = require("./duration.js");
 
 ### Parse duration string
 ``` js
-var d = Duration.parse("4h3m2s");
+var d = Duration.parse("6w5d4h3m2s");
 
 console.log(
-    "nanoseconds",  d.nanoseconds(),  "\n", // => 14582000000000
-    "microseconds", d.microseconds(), "\n", // => 14582000000
-    "milliseconds", d.milliseconds(), "\n", // => 14582000
-    "seconds",      d.seconds(),      "\n", // => 14582
-    "minutes",      d.minutes(),      "\n", // => 243
-    "hours",        d.hours(),        "\n"  // => 4
+    "milliseconds", d.milliseconds(), "\n", // => 4075382000
+    "seconds",      d.seconds(),      "\n", // => 4075382
+    "minutes",      d.minutes(),      "\n", // => 67923
+    "hours",        d.hours(),        "\n", // => 1132
+    "days",         d.days(),         "\n", // => 47
+    "weeks",        d.weeks(),        "\n"  // => 6
 );
 ```
 
@@ -25,8 +25,8 @@ console.log(
 ``` js
 console.log(
   "str:",  Duration.hour.toString(),
-  "nano:", Duration.hour.valueOf()
-); // => "str: 1h nano: 3600000000000"
+  "ms:",   Duration.hour.valueOf()
+); // => "str: 1h ms: 3600000"
 ```
 
 ### Can use basic operators
@@ -47,13 +47,13 @@ console.log(d2.toString()) // => "1h"
 // Adding duration to date
 var d     = Duration.parse("5h"),
     now   = new Date(),
-    later = new Date(now + d.milliseconds());
+    later = new Date(now + d);
 console.log(later.toString());
 
 // Duration between two dates
 var bday = Date.parse("March 3, 1991"),
     now  = new Date(),
-    age  = new Duration((now - bday) * Duration.millisecond);
+    age  = new Duration(now - bday);
 console.log(age.toString());
 ```
 
