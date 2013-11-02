@@ -114,7 +114,7 @@ var Duration = (function () {
           return new Duration(0);
         }
 
-        var regex = /([\-\+\d\.]+)([a-zµμ]+)/g,
+        var regex = /([\-\+\d\.]+)([a-z]+)/g,
             total = 0,
             count = 0,
             sign  = duration[0] === '-' ? -1 : 1,
