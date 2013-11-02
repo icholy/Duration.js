@@ -69,6 +69,17 @@ var bday = Date.parse("March 3, 1991"),
 console.log(age.toString());
 ```
 
+### setTimeout / setInterval
+
+``` js
+setTimeout(function () {
+    // runs 5 minutes later
+}, Duration.parse("5m"));
+
+setInterval(function () {
+    // runs every minute
+}, Duration.minute);
+```
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/icholy/duration.js/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
