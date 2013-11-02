@@ -10,16 +10,24 @@ var Duration = require("./duration.js");
 ```
 
 ### Parse
+
+* `ms` - millisecond
+* `s` - second
+* `m` - minute
+* `h` - hour
+* `d` - day
+* `w` - week
+
 ``` js
-var d = Duration.parse("6w5d4h3m2s");
+var d = Duration.parse("6w5d4h3m2s1ms");
 
 console.log(
-    "milliseconds", d.milliseconds(), "\n", // => 4075382000
-    "seconds",      d.seconds(),      "\n", // => 4075382
-    "minutes",      d.minutes(),      "\n", // => 67923
-    "hours",        d.hours(),        "\n", // => 1132
-    "days",         d.days(),         "\n", // => 47
-    "weeks",        d.weeks(),        "\n"  // => 6
+    d.milliseconds(), "\n", // => 4075382001
+    d.seconds(),      "\n", // => 4075382
+    d.minutes(),      "\n", // => 67923
+    d.hours(),        "\n", // => 1132
+    d.days(),         "\n", // => 47
+    d.weeks(),        "\n"  // => 6
 );
 ```
 
