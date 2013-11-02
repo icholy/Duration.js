@@ -77,8 +77,8 @@ setTimeout(function () {
 }, Duration.parse("5m"));
 
 setInterval(function () {
-    // runs every minute
-}, Duration.minute);
+    // runs every 10 seconds 
+}, 10 * Duration.second);
 ```
 
 
