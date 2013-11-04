@@ -1,0 +1,18 @@
+{
+  "name": "Duration.js",
+  "version": "3.0.1",
+  "homepage": "https://github.com/icholy/Duration.js",
+  "authors": [
+    "Ilia Choly <ilia.choly@gmail.com>"
+  ],
+  "description": "small simple library for dealing with durations",
+  "main": "duration.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
