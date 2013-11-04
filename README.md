@@ -5,8 +5,13 @@ It works well with javascript's Date objects.
 
 **Note:** For compatibility with Go's `time.Duration` use the [golang_compatible](https://github.com/icholy/Duration.js/tree/golang_compatible) branch.
 
+
+``` sh
+$ npm install duration-js
+```
+
 ``` js
-var Duration = require("./duration.js");
+var Duration = require("duration-js");
 ```
 
 ### Parse
@@ -47,9 +52,9 @@ var d1 = Duration.parse("6d"),
 console.log(d2.toString()) // => "1w"
 
 // Multiplication
-var d1 = Duration.parse("5m"),
-    d2 = new Duration(d1 * 12);
-console.log(d2.toString()) // => "1h"
+var d3 = Duration.parse("5m"),
+    d4 = new Duration(d3 * 12);
+console.log(d4.toString()) // => "1h"
 
 // etc ...
 ```
