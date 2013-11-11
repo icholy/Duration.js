@@ -61,13 +61,6 @@ var Duration = (function () {
         return "0";
       }
 
-      // weeks
-      var weeks = Math.floor(milliseconds / week);
-      if (weeks !== 0) {
-        milliseconds -= week * weeks;
-        str += weeks.toString() + "w";
-      }
-
       // days
       var days = Math.floor(milliseconds / day);
       if (days !== 0) {
