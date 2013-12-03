@@ -16,8 +16,17 @@ var Duration = (function () {
         "w"  : week
     };
 
-    var Duration = function (milliseconds) {
-        this._milliseconds = milliseconds;
+    var Duration = function (value) {
+        switch (typeof value) {
+            case "number":
+                this._milliseconds = value;
+                break;
+            case "string":
+                this._milliseconds = Duration.parse(value);
+                break;
+            default:
+                throw new Error("invalid duration: " + value);
+        }
     };
 
     Duration.millisecond = new Duration(millisecond);
