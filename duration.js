@@ -27,8 +27,12 @@ var Duration = (function () {
     Duration.day         = new Duration(day);
     Duration.week        = new Duration(week);
 
+    Duration.prototype.microseconds = function () {
+        return this._milliseconds * 1000;
+    };
+
     Duration.prototype.milliseconds = function () {
-        return Math.floor(this._milliseconds / millisecond);
+        return this._milliseconds;
     };
 
     Duration.prototype.seconds = function () {
@@ -135,6 +139,10 @@ var Duration = (function () {
         }
 
         return new Duration(total * sign);
+    };
+
+    Duration.fromMicroseconds = function (us) {
+      return new Duration(us / 1000);
     };
 
     return Duration;
