@@ -142,7 +142,8 @@ var Duration = (function () {
     };
 
     Duration.fromMicroseconds = function (us) {
-      return new Duration(us / 1000);
+        var ms = Math.floor(us / 1000);
+        return new Duration(ms);
     };
 
     return Duration;
