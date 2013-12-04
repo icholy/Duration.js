@@ -22,7 +22,7 @@ var Duration = (function () {
                 this._milliseconds = value;
                 break;
             case "string":
-                this._milliseconds = Duration.parse(value);
+                this._milliseconds = Duration.parse(value).valueOf();
                 break;
             default:
                 throw new Error("invalid duration: " + value);
