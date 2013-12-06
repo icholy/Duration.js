@@ -17,6 +17,9 @@ var Duration = (function () {
     };
 
     var Duration = function (value) {
+        if (value instanceof Duration) {
+          return value;
+        }
         switch (typeof value) {
             case "number":
                 this._milliseconds = value;
