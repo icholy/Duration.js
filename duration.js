@@ -27,6 +27,9 @@ var Duration = (function () {
             case "string":
                 this._milliseconds = Duration.parse(value).valueOf();
                 break;
+            case "undefined":
+                this._milliseconds = 0;
+                break;
             default:
                 throw new Error("invalid duration: " + value);
         }
