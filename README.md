@@ -24,7 +24,7 @@ var Duration = require("duration-js");
 * `w` - week
 
 ``` js
-var d = Duration.parse("6w5d4h3m2s1ms");
+var d = new Duration("6w5d4h3m2s1ms");
 
 console.log(
     d.milliseconds(), "\n", // => 4075382001
@@ -47,12 +47,12 @@ console.log(
 ### Basic Operations
 ``` js
 // Addition
-var d1 = Duration.parse("6d"),
+var d1 = new Duration("6d"),
     d2 = new Duration(d1 + Duration.day);
 console.log(d2.toString()) // => "1w"
 
 // Multiplication
-var d3 = Duration.parse("5m"),
+var d3 = new Duration("5m"),
     d4 = new Duration(d3 * 12);
 console.log(d4.toString()) // => "1h"
 
@@ -68,7 +68,7 @@ var d     = Duration.parse("5h"),
 console.log(later.toString());
 
 // Duration between two dates
-var bday = Date.parse("March 3, 1991"),
+var bday = new Date("March 3, 1991"),
     now  = new Date(),
     age  = new Duration(now - bday);
 console.log(age.toString());
@@ -79,7 +79,7 @@ console.log(age.toString());
 ``` js
 setTimeout(function () {
     // runs 5 minutes later
-}, Duration.parse("5m"));
+}, new Duration("5m"));
 
 setInterval(function () {
     // runs every 10 seconds 
