@@ -74,18 +74,28 @@ describe('Duration', function () {
   parseDurationTests.forEach(function (test) {
     if (test.passed) {
       it('should parse ' + test.input, function () {
-        expect(Duration.parse(test.input).milliseconds()).to.equal(test.output);
+        expect(Duration.parse(test.input).valueOf()).to.equal(test.output);
       });
       it('should produce the correct string value ' + test.input, function () {
         var d      = Duration.parse(test.input),
-            before = d.milliseconds(),
-            after  = Duration.parse(d.toString()).milliseconds();
+            before = d.valueOf(),
+            after  = Duration.parse(d.toString()).valueOf();
         expect(before).to.equal(after);
+      });
+      it('should take accept ' + test.input + ' in the constructor', function () {
+        expect(new Duration(test.input).valueOf()).to.equal(test.output);
+      });
+      it('should return any Duration object passed to constructor', function () {
+        var d = new Duration(test.input);
+        expect(new Duration(d)).to.equal(new Duration(d));
       });
     } else {
       it('should not parse ' + test.input, function () {
         expect(Duration.parse.bind(null, test.input)).to.throw(Error);
       });
     }
+  });
+  it('should default to 0 duration when constructed with undefined', function () {
+    expect(new Duration().valueOf()).to.equal(0);
   });
 });
