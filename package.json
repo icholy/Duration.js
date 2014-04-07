@@ -10,7 +10,7 @@
   "scripts": {
     "test": "mocha"
   },
-  "dependencies": {
+  "devDependencies": {
     "chai": "~1.7.2",
     "mocha": "~1.13.0"
   },
