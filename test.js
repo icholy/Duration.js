@@ -60,7 +60,9 @@ var parseDurationTests = [
   [".", false, 0],
   ["-.", false, 0],
   [".s", false, 0],
-  ["+.s", false, 0]
+  ["+.s", false, 0],
+  ["1d1m1d", false, 0],
+  ["1s1s2d", false, 0]
 
 ].map(function (test) {
   return {

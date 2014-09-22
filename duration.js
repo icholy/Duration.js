@@ -134,6 +134,7 @@ var Duration = (function () {
             total = 0,
             count = 0,
             sign  = duration[0] === '-' ? -1 : 1,
+            used  = {},
             unit, value, match;
 
         while (match = regex.exec(duration)) {
@@ -149,6 +150,11 @@ var Duration = (function () {
             if (typeof unitMap[unit] === "undefined") {
               throw new Error("invalid unit: " + unit);
             }
+
+            if (typeof used[unit] !== "undefined") {
+              throw new Error("duplicate unit: " + unit);
+            }
+            used[unit] = true;
 
             total += value * unitMap[unit];
         }
