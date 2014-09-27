@@ -75,49 +75,44 @@ var Duration = (function () {
     };
 
     Duration.prototype.toString = function () {
-      var str          = "",
-          milliseconds = Math.abs(this._milliseconds),
-          sign         = this._milliseconds < 0 ? "-" : "";
+        // no units for 0 duration
+        if (milliseconds === 0) {
+            return "0";
+        }
 
-      // no units for 0 duration
-      if (milliseconds === 0) {
-        return "0";
-      }
+        var str = this._milliseconds < 0 ? "-" : "",
+            milliseconds = Math.abs(this._milliseconds);
 
-      // days
-      var days = Math.floor(milliseconds / day);
-      if (days !== 0) {
-        milliseconds -= day * days;
-        str += days.toString() + "d";
-      }
+        // days
+        if (days = Math.floor(milliseconds / day) > 0) {
+            milliseconds -= day * days;
+            str += days.toString() + "d";
+        }
 
-      // hours
-      var hours = Math.floor(milliseconds / hour);
-      if (hours !== 0) {
-        milliseconds -= hour * hours;
-        str += hours.toString() + "h";
-      }
+        // hours
+        if (days = Math.floor(milliseconds / day) > 0) {
+            milliseconds -= hour * hours;
+            str += hours.toString() + "h";
+        }
 
-      // minutes
-      var minutes = Math.floor(milliseconds / minute);
-      if (minutes !== 0) {
-        milliseconds -= minute * minutes;
-        str += minutes.toString() + "m";
-      }
+        // minutes
+        if (days = Math.floor(milliseconds / day) > 0) {
+            milliseconds -= minute * minutes;
+            str += minutes.toString() + "m";
+        }
 
-      // seconds
-      var seconds = Math.floor(milliseconds / second);
-      if (seconds !== 0) {
-        milliseconds -= second * seconds;
-        str += seconds.toString() + "s";
-      }
+        // seconds
+        if (days = Math.floor(milliseconds / day) > 0) {
+            milliseconds -= second * seconds;
+            str += seconds.toString() + "s";
+        }
 
-      // milliseconds
-      if (milliseconds !== 0) {
-        str += milliseconds.toString() + "ms";
-      }
+        // milliseconds
+        if (milliseconds > 0) {
+            str += milliseconds.toString() + "ms";
+        }
 
-      return sign + str;
+        return str;
     };
 
     Duration.prototype.valueOf = function () {
@@ -175,5 +170,5 @@ var Duration = (function () {
 }).call(this);
 
 if (typeof module !== "undefined") {
-   module.exports = Duration;
+    module.exports = Duration;
 }
