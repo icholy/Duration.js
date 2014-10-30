@@ -1,6 +1,6 @@
 # Duration [![Build Status](https://travis-ci.org/icholy/Duration.js.png?branch=master)](https://travis-ci.org/icholy/Duration.js)
 
-This is a simple library for dealing with durations. 
+This is a library for dealing with durations. 
 It works well with javascript's Date objects.
 
 **Note:** For compatibility with Go's `time.Duration` use the [golang_compatible](https://github.com/icholy/Duration.js/tree/golang_compatible) branch.
