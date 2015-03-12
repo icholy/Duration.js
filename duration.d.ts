@@ -1,31 +1,31 @@
 declare class Duration {
-	
-	private _milliseconds: number;
 
-    constructor(value?: any);
+  private _milliseconds: number;
 
-    static millisecond: Duration;
-    static second:      Duration;
-    static minute:      Duration;
-    static hour:        Duration;
-    static day:         Duration;
-    static week:        Duration;
+  constructor(value?: any);
 
-    nanoseconds():  number;
-    microseconds(): number;
-    milliseconds(): number;
-    seconds():      number;
-    minutes():      number;
-    hours():        number;
-    days():         number;
-    weeks():        number;
+  static millisecond: Duration;
+  static second:      Duration;
+  static minute:      Duration;
+  static hour:        Duration;
+  static day:         Duration;
+  static week:        Duration;
 
-    toString(): string;
-    valueOf():  number;
+  nanoseconds():  number;
+  microseconds(): number;
+  milliseconds(): number;
+  seconds():      number;
+  minutes():      number;
+  hours():        number;
+  days():         number;
+  weeks():        number;
 
-    parse(duration: string): Duration;
-	
-    static fromMicroseconds(us: number): Duration;
-    static fromNanoseconds(ns: number):  Duration;
+  toString(): string;
+  valueOf():  number;
+
+  parse(duration: string): Duration;
+
+  static fromMicroseconds(us: number): Duration;
+  static fromNanoseconds(ns: number):  Duration;
 }
 
