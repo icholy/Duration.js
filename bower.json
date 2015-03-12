@@ -5,6 +5,9 @@
   "authors": [
     "Ilia Choly <ilia.choly@gmail.com>"
   ],
+  "typescript": {
+    "definition": "duration.d.ts"
+  },
   "description": "small simple library for dealing with durations",
   "main": "duration.js",
   "license": "MIT",
