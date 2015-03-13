@@ -23,8 +23,7 @@ declare class Duration {
   toString(): string;
   valueOf():  number;
 
-  parse(duration: string): Duration;
-
+  static parse(duration: string):      Duration;
   static fromMicroseconds(us: number): Duration;
   static fromNanoseconds(ns: number):  Duration;
 }
