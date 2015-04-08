@@ -49,7 +49,7 @@ console.log(
 // Addition
 var d1 = new Duration("6d"),
     d2 = new Duration(d1 + Duration.day);
-console.log(d2.toString()) // => "1w"
+console.log(d2.toString()) // => "168h"
 
 // Multiplication
 var d3 = new Duration("5m"),
