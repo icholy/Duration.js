@@ -167,6 +167,15 @@ var Duration = (function () {
 
 }).call(this);
 
-if (typeof module !== "undefined") {
-   module.exports = Duration;
-}
+// module definition
+(function (root) {
+  if (typeof define === 'function' && define.amd) {
+    define([], function () {
+      return Duration;
+    });
+  } else if (typeof module !== "undefined") {
+     module.exports = Duration;
+  } else {
+    root.Duration = Duration;
+  }
+}).call(this);
