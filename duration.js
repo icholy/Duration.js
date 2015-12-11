@@ -22,6 +22,9 @@ var Duration = (function () {
         }
         switch (typeof value) {
             case "number":
+                if (!isFinite(value)) {
+                  throw new Error("invalid duration: " + value);
+                }
                 this._milliseconds = value;
                 break;
             case "string":
