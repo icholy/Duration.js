@@ -98,4 +98,8 @@ describe('Duration', function () {
   it('should default to 0 duration when constructed with undefined', function () {
     expect(new Duration().valueOf()).to.equal(0);
   });
+  it('should throw an exception when constructed using non-finite numbers', function () {
+    expect(function () { new Duration(Infinity); }).to.throw();
+    expect(function () { new Duration(NaN); }).to.throw();
+  });
 });
