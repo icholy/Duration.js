@@ -181,4 +181,4 @@ var Duration = (function () {
   } else {
     root.Duration = Duration;
   }
-}).call(this);
+})(this);
