@@ -23,7 +23,7 @@ declare class Duration {
   toString(): string;
   valueOf():  number;
 
-  roundTo(duration: string|number|Duration)
+  roundTo(duration: string|number|Duration): void;
 
   static parse(duration: string):      Duration;
   static fromMicroseconds(us: number): Duration;
