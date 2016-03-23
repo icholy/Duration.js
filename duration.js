@@ -166,6 +166,11 @@ var Duration = (function () {
         return new Duration(ms);
     };
 
+    Duration.prototype.roundTo = function (duration) {
+      var ms = new Duration(duration).valueOf();
+      this._milliseconds = ms * Math.round(this._milliseconds / ms);
+    }
+
     return Duration;
 
 }).call(this);

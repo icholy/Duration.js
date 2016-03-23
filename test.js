@@ -102,4 +102,14 @@ describe('Duration', function () {
     expect(function () { new Duration(Infinity); }).to.throw();
     expect(function () { new Duration(NaN); }).to.throw();
   });
+  it('should correctly round to the nearest minute', function () {
+    var d = new Duration("5m3s");
+    d.roundTo(Duration.minute);
+    expect(d.toString()).to.equal("5m");
+  });
+  it('should correctly round to the nearest hour', function () {
+    var d = new Duration("4h20m");
+    d.roundTo("1h");
+    expect(d.toString()).to.equal("4h");
+  })
 });
