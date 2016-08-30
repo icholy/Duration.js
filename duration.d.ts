@@ -28,5 +28,7 @@ declare class Duration {
   static parse(duration: string):      Duration;
   static fromMicroseconds(us: number): Duration;
   static fromNanoseconds(ns: number):  Duration;
+  static since(date: Date|number):     Duration;
+  static after(date: Date|number):     Duration;
 }
 
