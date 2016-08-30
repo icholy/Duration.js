@@ -156,6 +156,14 @@ var Duration = (function () {
         return new Duration(total * sign);
     };
 
+    Duration.prototype.after = function (date) {
+      return new Date(date.valueOf() + this._milliseconds);
+    };
+
+    Duration.since = function (date) {
+      return new Duration(new Date().valueOf() - date.valueOf());
+    };
+
     Duration.fromMicroseconds = function (us) {
         var ms = Math.floor(us / 1000);
         return new Duration(ms);
@@ -169,14 +177,6 @@ var Duration = (function () {
     Duration.prototype.roundTo = function (duration) {
       var ms = new Duration(duration).valueOf();
       this._milliseconds = ms * Math.round(this._milliseconds / ms);
-    };
-
-    Duration.prototype.after = function (date) {
-      return new Date(date.valueOf() + this._milliseconds);
-    };
-
-    Duration.prototype.since = function (date) {
-      return new Duration(new Date().valueOf() - date.valueOf());
     };
 
     return Duration;
