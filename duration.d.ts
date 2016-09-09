@@ -2,7 +2,7 @@ declare class Duration {
 
   private _milliseconds: number;
 
-  constructor(value?: string|number|Duration);
+  constructor(value?: string | number | Duration);
 
   static millisecond: Duration;
   static second:      Duration;
@@ -23,11 +23,11 @@ declare class Duration {
   toString(): string;
   valueOf():  number;
 
-  roundTo(duration: string|number|Duration): void;
+  roundTo(duration: string | number | Duration): void;
 
-  after(date: Date|number): Duration;
+  after(date: Date | number): Duration;
 
-  static since(date: Date|number):     Duration;
+  static since(date: Date | number):     Duration;
   static parse(duration: string):      Duration;
   static fromMicroseconds(us: number): Duration;
   static fromNanoseconds(ns: number):  Duration;
