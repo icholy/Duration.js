@@ -43,7 +43,7 @@ declare class Duration {
   static add(a: Duration, b: Duration):      Duration;
   static subtract(a: Duration, b: Duration): Duration;
   static multiply(a: Duration, b: number):   Duration;
-  static multiply(a: number: b: Duration):   Duration;
+  static multiply(a: number, b: Duration):   Duration;
   static divide(a: Duration, b: Duration):   number;
 }
 
