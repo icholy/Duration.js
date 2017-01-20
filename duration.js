@@ -161,6 +161,18 @@ var Duration = (function () {
       this._milliseconds = ms * Math.round(this._milliseconds / ms);
     };
 
+    Duration.prototype.isGreaterThan = function (duration) {
+        return this.valueOf() > new Duration(duration).valueOf();
+    };
+
+    Duration.prototype.isLessThan = function (duration) {
+        return this.valueOf() < new Duration(duration).valueOf();
+    };
+
+    Duration.prototype.isEqualTo = function (duration) {
+        return this.valueOf() === new Duration(duration).valueOf();
+    };
+
     Duration.prototype.after = function (date) {
       return new Date(date.valueOf() + this._milliseconds);
     };

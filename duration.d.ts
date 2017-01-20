@@ -25,6 +25,10 @@ declare class Duration {
   toString(): string;
   valueOf():  number;
 
+  isGreaterThan(duration: DurationLike): boolean;
+  isLessThan(duration: DurationLike):    boolean;
+  isEqualTo(duration: DurationLike):     boolean;
+
   roundTo(duration: DurationLike): void;
 
   after(date: Date | number): Duration;

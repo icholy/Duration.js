@@ -120,4 +120,13 @@ describe('Duration', function () {
     expect(Duration.multiply(a, 2).toString()).to.equal("10m");
     expect(Duration.divide(a, b)).to.equal(5);
   });
+  it('should compare correctly', function () {
+    var d = new Duration("6h");
+    expect(d.isGreaterThan("4h")).to.be.true;
+    expect(d.isGreaterThan("7h")).to.be.false;
+    expect(d.isLessThan("3h")).to.be.false;
+    expect(d.isLessThan("9h")).to.be.true;
+    expect(d.isEqualTo("6h")).to.be.true;
+    expect(d.isEqualTo("2m")).to.be.false;
+  });
 });
