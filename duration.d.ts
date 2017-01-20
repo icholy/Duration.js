@@ -1,8 +1,10 @@
+type DurationLike = Duration | string | number;
+
 declare class Duration {
 
   private _milliseconds: number;
 
-  constructor(value?: string | number | Duration);
+  constructor(value?: DurationLike);
 
   static millisecond: Duration;
   static second:      Duration;
@@ -23,7 +25,7 @@ declare class Duration {
   toString(): string;
   valueOf():  number;
 
-  roundTo(duration: string | number | Duration): void;
+  roundTo(duration: DurationLike): void;
 
   after(date: Date | number): Duration;
 
