@@ -156,6 +156,10 @@ var Duration = (function () {
         return new Duration(total * sign);
     };
 
+    Duration.prototype.between = function (a, b) {
+        return new Duration(b.valueOf() - a.valueOf());
+    };
+
     Duration.prototype.roundTo = function (duration) {
       var ms = new Duration(duration).valueOf();
       this._milliseconds = ms * Math.round(this._milliseconds / ms);

@@ -1,4 +1,5 @@
 type DurationLike = Duration | string | number;
+type DateLike = Date | number;
 
 declare class Duration {
 
@@ -31,12 +32,13 @@ declare class Duration {
 
   roundTo(duration: DurationLike): void;
 
-  after(date: Date | number): Duration;
+  after(date: DateLike): Duration;
 
-  static since(date: Date | number):   Duration;
-  static parse(duration: string):      Duration;
-  static fromMicroseconds(us: number): Duration;
-  static fromNanoseconds(ns: number):  Duration;
+  static since(date: DateLike):             Duration;
+  static between(a: DateLike, b: DateLike): Duration;
+  static parse(duration: string):           Duration;
+  static fromMicroseconds(us: number):      Duration;
+  static fromNanoseconds(ns: number):       Duration;
 
   static add(a: Duration, b: Duration):      Duration;
   static subtract(a: Duration, b: Duration): Duration;
