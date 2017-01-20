@@ -27,9 +27,15 @@ declare class Duration {
 
   after(date: Date | number): Duration;
 
-  static since(date: Date | number):     Duration;
+  static since(date: Date | number):   Duration;
   static parse(duration: string):      Duration;
   static fromMicroseconds(us: number): Duration;
   static fromNanoseconds(ns: number):  Duration;
+
+  static add(a: Duration, b: Duration):      Duration;
+  static subtract(a: Duration, b: Duration): Duration;
+  static multiply(a: Duration, b: number):   Duration;
+  static multiply(a: number: b: Duration):   Duration;
+  static divide(a: Duration, b: Duration):   number;
 }
 
