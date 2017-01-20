@@ -156,6 +156,11 @@ var Duration = (function () {
         return new Duration(total * sign);
     };
 
+    Duration.prototype.roundTo = function (duration) {
+      var ms = new Duration(duration).valueOf();
+      this._milliseconds = ms * Math.round(this._milliseconds / ms);
+    };
+
     Duration.prototype.after = function (date) {
       return new Date(date.valueOf() + this._milliseconds);
     };
@@ -172,11 +177,6 @@ var Duration = (function () {
     Duration.fromNanoseconds = function (ns) {
         var ms = Math.floor(ns / 1000000);
         return new Duration(ms);
-    };
-
-    Duration.prototype.roundTo = function (duration) {
-      var ms = new Duration(duration).valueOf();
-      this._milliseconds = ms * Math.round(this._milliseconds / ms);
     };
 
     return Duration;
