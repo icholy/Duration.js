@@ -112,4 +112,12 @@ describe('Duration', function () {
     d.roundTo("1h");
     expect(d.toString()).to.equal("4h");
   })
+  it('should correctly implement basic arithmatic', function () {
+    var a = new Duration("5m"),
+        b = new Duration("1m");
+    expect(Duration.add(a, b).toString()).to.equal("6m");
+    expect(Duration.subtract(a, b).toString()).to.equal("4m");
+    expect(Duration.multiply(a, 2).toString()).to.equal("10m");
+    expect(Duration.divide(a, b)).to.equal(5);
+  });
 });

@@ -179,6 +179,22 @@ var Duration = (function () {
         return new Duration(ms);
     };
 
+    Duration.add = function (a, b) {
+        return new Duration(a + b);
+    };
+
+    Duration.subtract = function (a, b) {
+        return new Duration(a - b);
+    };
+
+    Duration.multiply = function (a, b) {
+        return new Duration(a * b);
+    };
+
+    Duration.divide = function(a, b) {
+        return a / b;
+    };
+
     return Duration;
 
 }).call(this);
