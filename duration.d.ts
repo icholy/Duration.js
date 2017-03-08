@@ -32,7 +32,7 @@ declare class Duration {
 
   roundTo(duration: DurationLike): void;
 
-  after(date: DateLike): Duration;
+  after(date: DateLike): Date;
 
   static since(date: DateLike):             Duration;
   static between(a: DateLike, b: DateLike): Duration;
