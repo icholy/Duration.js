@@ -35,6 +35,7 @@ declare class Duration {
   after(date: DateLike): Date;
 
   static since(date: DateLike):             Duration;
+  static until(date: DateLike):             Duration;
   static between(a: DateLike, b: DateLike): Duration;
   static parse(duration: string):           Duration;
   static fromMicroseconds(us: number):      Duration;

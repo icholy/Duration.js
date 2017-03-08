@@ -181,6 +181,10 @@ var Duration = (function () {
       return new Duration(new Date().valueOf() - date.valueOf());
     };
 
+    Duration.until = function (date) {
+      return new Duration(date.valueOf() - new Date().valueOf());
+    };
+
     Duration.fromMicroseconds = function (us) {
         var ms = Math.floor(us / 1000);
         return new Duration(ms);
