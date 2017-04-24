@@ -51,6 +51,13 @@ var parseDurationTests = [
   
   // large value
   ["52763797000ms", true, 52763797000 * millisecond],
+
+  // small values
+  ["5us", true, 0 * millisecond],
+  ["1001us", true, 1 * millisecond],
+  ["1001µs", true, 1 * millisecond],
+  ["1001μs", true, 1 * millisecond],
+  ["345ns", true, 0 * millisecond],
   
   // errors
   ["", false, 0],
