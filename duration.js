@@ -7,7 +7,14 @@ var Duration = (function () {
         day         = 24   * hour,
         week        = 7    * day;
 
+    var microsecond = millisecond / 1000,
+        nanosecond  = microsecond / 1000;
+
     var unitMap = {
+        "ns" : nanosecond,
+        "us" : microsecond,
+        "µs" : microsecond,
+        "μs" : microsecond,
         "ms" : millisecond,
         "s"  : second,
         "m"  : minute,
@@ -46,11 +53,11 @@ var Duration = (function () {
     Duration.week        = new Duration(week);
 
     Duration.prototype.nanoseconds = function () {
-        return this._milliseconds * 1000000;
+        return Math.floor(this._milliseconds / nanosecond);
     };
 
     Duration.prototype.microseconds = function () {
-        return this._milliseconds * 1000;
+        return Math.floor(this._milliseconds / microsecond);
     };
 
     Duration.prototype.milliseconds = function () {
@@ -126,7 +133,7 @@ var Duration = (function () {
           return new Duration(0);
         }
 
-        var regex = /([\-\+\d\.]+)([a-z]+)/g,
+        var regex = /([\-\+\d\.]+)([a-zµμ]+)/g,
             total = 0,
             count = 0,
             sign  = duration[0] === '-' ? -1 : 1,
@@ -153,7 +160,7 @@ var Duration = (function () {
           throw new Error("invalid duration");
         }
 
-        return new Duration(total * sign);
+        return new Duration(Math.floor(total) * sign);
     };
 
     Duration.prototype.roundTo = function (duration) {
