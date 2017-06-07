@@ -52,6 +52,30 @@ var Duration = (function () {
     Duration.day         = new Duration(day);
     Duration.week        = new Duration(week);
 
+    Duration.milliseconds = function (milliseconds) {
+        return new Duration(milliseconds * millisecond);
+    };
+
+    Duration.seconds = function (seconds) {
+        return new Duration(seconds * second);
+    };
+
+    Duration.minutes = function (minutes) {
+        return new Duration(minutes * minute);
+    };
+
+    Duration.hours = function (hours) {
+        return new Duration(hours * hour);
+    };
+
+    Duration.days = function (days) {
+        return new Duration(days * day);
+    };
+
+    Duration.weeks = function(weeks) {
+        return new Duration(weeks * week);
+    };
+
     Duration.prototype.nanoseconds = function () {
         return Math.floor(this._milliseconds / nanosecond);
     };
