@@ -246,6 +246,11 @@ var Duration = (function () {
         return a / b;
     };
 
+    Duration.abs = function (duration) {
+        let ms = new Duration(duration).valueOf();
+        return new Duration(Math.abs(ms));
+    };
+
     return Duration;
 
 }).call(this);

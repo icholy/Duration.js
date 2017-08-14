@@ -53,5 +53,6 @@ declare class Duration {
     static multiply(a: Duration, b: number):   Duration;
     static multiply(a: number, b: Duration):   Duration;
     static divide(a: Duration, b: Duration):   number;
+    static abs(d: DurationLike):               Duration;
 }
 
