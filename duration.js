@@ -247,7 +247,7 @@ var Duration = (function () {
     };
 
     Duration.abs = function (duration) {
-        let ms = new Duration(duration).valueOf();
+        var ms = new Duration(duration).valueOf();
         return new Duration(Math.abs(ms));
     };
 
