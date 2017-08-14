@@ -142,4 +142,8 @@ describe('Duration', function () {
         expect(Duration.minutes(0.5).toString()).to.equal("30s");
         expect(Duration.hours(2).toString()).to.equal("2h");
     });
+    it('should get the absolute value', function () {
+        expect(Duration.abs("-10m").toString()).to.equal("10m");
+        expect(Duration.abs("6h").toString()).to.equal("6h");
+    });
 });
