@@ -188,8 +188,8 @@ var Duration = (function () {
     };
 
     Duration.prototype.roundTo = function (duration) {
-      var ms = new Duration(duration).valueOf();
-      this._milliseconds = ms * Math.round(this._milliseconds / ms);
+        var ms = new Duration(duration).valueOf();
+        this._milliseconds = ms * Math.round(this._milliseconds / ms);
     };
 
     Duration.prototype.isGreaterThan = function (duration) {
