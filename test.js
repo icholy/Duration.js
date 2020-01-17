@@ -1,6 +1,6 @@
 
-var Duration = require("./duration.js"),
-    expect   = require("chai").expect;
+var { Duration} = require("./dist/duration.js"),
+    { expect }  = require("chai");
 
 var millisecond = 1,
     second      = 1000 * millisecond,
@@ -94,7 +94,7 @@ describe('Duration', function () {
             });
             it('should return any Duration object passed to constructor', function () {
                 var d = new Duration(test.input);
-                expect(new Duration(d)).to.equal(new Duration(d));
+                expect(new Duration(d).isEqualTo(new Duration(d)));
             });
         } else {
             it('should not parse ' + test.input, function () {
@@ -110,13 +110,11 @@ describe('Duration', function () {
         expect(function () { new Duration(NaN); }).to.throw();
     });
     it('should correctly round to the nearest minute', function () {
-        var d = new Duration("5m3s");
-        d.roundTo(Duration.minute);
+        var d = new Duration("5m3s").truncate(Duration.minute);
         expect(d.toString()).to.equal("5m");
     });
     it('should correctly round to the nearest hour', function () {
-        var d = new Duration("4h20m");
-        d.roundTo("1h");
+        var d = new Duration("4h20m").truncate("1h");
         expect(d.toString()).to.equal("4h");
     })
     it('should correctly implement basic arithmatic', function () {
@@ -143,7 +141,7 @@ describe('Duration', function () {
         expect(Duration.hours(2).toString()).to.equal("2h");
     });
     it('should get the absolute value', function () {
-        expect(Duration.abs("-10m").toString()).to.equal("10m");
-        expect(Duration.abs("6h").toString()).to.equal("6h");
+        expect(new Duration("-10m").abs().toString()).to.equal("10m");
+        expect(new Duration("6h").abs().toString()).to.equal("6h");
     });
 });

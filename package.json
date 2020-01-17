@@ -1,21 +1,24 @@
 {
-  "name": "duration-js",
-  "version": "4.1.0",
-  "description": "small simple library for dealing with durations",
+  "name": "@icholy/duration",
+  "version": "5.0.0",
+  "description": "class for working with time durations",
   "repository": {
     "type": "git",
     "url": "https://github.com/icholy/Duration.js.git"
   },
-  "main": "duration.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "build": "tsc"
   },
-  "typescript": {
-    "definition": "duration.d.ts"
-  },
+  "types": "dist/duration.d.ts",
+  "main": "dist/duration.js",
+  "prepublish": "tsc",
   "devDependencies": {
     "chai": "~1.7.2",
     "mocha": "~1.13.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "author": "Ilia Choly",
   "license": "MIT",

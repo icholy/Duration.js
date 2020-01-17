@@ -7,11 +7,11 @@ It works well with javascript's Date objects.
 
 
 ``` sh
-$ npm install duration-js
+$ npm install @icholy/duration
 ```
 
 ``` js
-var Duration = require("duration-js");
+import { Duration } from "@icholy/duration";
 ```
 
 ### Parse
