@@ -9,7 +9,7 @@ $ npm install @icholy/duration
 ```
 
 ``` js
-import { Duration } from "@icholy/duration";
+import Duration from "@icholy/duration";
 ```
 
 ### Parse
