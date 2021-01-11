@@ -7,7 +7,7 @@
     "url": "https://github.com/icholy/Duration.js.git"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "tsc; mocha",
     "build": "tsc"
   },
   "types": "dist/duration.d.ts",
