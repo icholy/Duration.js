@@ -3,4 +3,3 @@ node_js:
   - node
   - lts/*
   - 10
-  - 8
