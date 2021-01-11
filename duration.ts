@@ -25,7 +25,7 @@ const unitMap: Record<string, number> = {
 export type DurationLike = Duration | string | number;
 export type DateLike = Date | number;
 
-export default class Duration {
+export class Duration {
 
   private _milliseconds: number;
 
@@ -267,3 +267,5 @@ export default class Duration {
   }
 
 }
+
+export default Duration;
