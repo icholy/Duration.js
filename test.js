@@ -1,6 +1,6 @@
 
-var { Duration} = require("./dist/duration.js"),
-    { expect }  = require("chai");
+var { Duration } = require("./dist/duration.js"),
+    { expect }   = require("chai");
 
 var millisecond = 1,
     second      = 1000 * millisecond,
