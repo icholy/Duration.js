@@ -7,7 +7,7 @@ const millisecond = 1,
       week        = 7    * day;
 
 const microsecond = millisecond / 1000,
-     nanosecond  = microsecond / 1000;
+      nanosecond  = microsecond / 1000;
 
 const unitMap: Record<string, number> = {
     "ns": nanosecond,
@@ -126,9 +126,9 @@ export class Duration {
   }
 
   toString(): string {
-    var str          = "",
-      milliseconds = Math.abs(this._milliseconds),
-      sign         = this._milliseconds < 0 ? "-" : "";
+    let str          = "",
+        milliseconds = Math.abs(this._milliseconds),
+        sign         = this._milliseconds < 0 ? "-" : "";
 
     // no units for 0 duration
     if (milliseconds === 0) {
@@ -136,21 +136,21 @@ export class Duration {
     }
 
     // hours
-    var hours = Math.floor(milliseconds / hour);
+    let hours = Math.floor(milliseconds / hour);
     if (hours !== 0) {
       milliseconds -= hour * hours;
       str += hours.toString() + "h";
     }
 
     // minutes
-    var minutes = Math.floor(milliseconds / minute);
+    let minutes = Math.floor(milliseconds / minute);
     if (minutes !== 0) {
       milliseconds -= minute * minutes;
       str += minutes.toString() + "m";
     }
 
     // seconds
-    var seconds = Math.floor(milliseconds / second);
+    let seconds = Math.floor(milliseconds / second);
     if (seconds !== 0) {
       milliseconds -= second * seconds;
       str += seconds.toString() + "s";
