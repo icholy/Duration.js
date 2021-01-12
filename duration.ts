@@ -37,7 +37,7 @@ export class Duration {
     switch (typeof value) {
       case "number":
         if (!isFinite(value)) {
-          throw new Error("invalid duration: " + value);
+          throw new Error(`invalid duration: ${value}`);
         }
         this._milliseconds = value;
         break;
@@ -48,7 +48,7 @@ export class Duration {
         this._milliseconds = 0;
         break;
       default:
-        throw new Error("invalid duration: " + value);
+        throw new Error(`invalid duration: ${value}`);
     }
   }
 
