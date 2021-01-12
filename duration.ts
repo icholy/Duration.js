@@ -196,18 +196,18 @@ export class Duration {
       count++;
 
       if (isNaN(value)) {
-        throw new Error("invalid duration");
+        throw new Error(`invalid duration: "${duration}"`);
       }
 
       if (typeof unitMap[unit] === "undefined") {
-        throw new Error("invalid unit: " + unit);
+        throw new Error(`invalid duration: "${duration}": bad unit ${unit}`);
       }
 
       total += value * unitMap[unit];
     }
 
     if (count === 0) {
-      throw new Error("invalid duration");
+      throw new Error(`invalid duration: "${duration}"`);
     }
 
     return new Duration(Math.floor(total) * sign);
